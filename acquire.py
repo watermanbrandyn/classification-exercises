@@ -14,7 +14,7 @@ def get_titanic_data(use_cache = True):
     return df
 
 def get_iris_data(use_cache = True):
-      if os.path.exists('iris.csv') and use_cache:
+    if os.path.exists('iris.csv') and use_cache:
         print('Using cached csv')
         return pd.read_csv('iris.csv')
     print('Acquiring data from SQL db')

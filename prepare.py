@@ -1,3 +1,5 @@
+import pandas as pd
+
 def prep_iris(iris_df):
     '''
     This function takes in the untransofmred iris data and modifies it by:
@@ -9,7 +11,7 @@ def prep_iris(iris_df):
     iris_df = iris_df.rename(columns={'species_name': 'species'})
     dummy_df = pd.get_dummies(iris_df['species'], drop_first = True)
     iris_df = pd.concat([iris_df, dummy_df], axis=1)
-    return iris_df.drop(columns='species')
+    return iris_df #.drop(columns='species')
 
 def prep_titanic(titanic_df):
     '''

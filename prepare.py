@@ -51,6 +51,8 @@ def prep_telco(telco_df):
                                   'multiple_lines', 'online_security', 'online_backup', 'device_protection', 
                                   'tech_support', 'streaming_tv', 'streaming_movies', 'paperless_billing', 
                                   'churn', 'internet_service_type', 'contract_type', 'payment_type'])
+    # Dropping the NaN values (11 cases due to tenure < 0 and total_charges being NaN as a result)
+    telco_df.dropna(inplace = True)
     return telco_df
 
 # Example (below) of doing these prepare functions with cleaner looping

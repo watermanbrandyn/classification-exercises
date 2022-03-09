@@ -21,7 +21,7 @@ def prep_titanic(titanic_df):
     - encodes the categorical columns, creates dummy variables for them, and concats them to titanic_df
     '''
     titanic_df.drop_duplicates(inplace=True)
-    titanic_df = titanic_df.drop(columns= ['deck', 'age', 'embarked', 'class', 'passenger_id'])
+    titanic_df = titanic_df.drop(columns= ['deck', 'embarked', 'class', 'passenger_id'])
     titanic_df['embark_town'] = titanic_df.embark_town.fillna('Southampton')
     dummy_df = pd.get_dummies(titanic_df[['sex', 'embark_town']], dummy_na = False, drop_first = [True, True])
     titanic_df = pd.concat([titanic_df, dummy_df], axis=1)
